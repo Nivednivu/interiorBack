@@ -13,8 +13,8 @@ app.use(express.json());
 
 // Database connection
 mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+   maxPoolSize: 10, 
+  serverSelectionTimeoutMS: 5000
 })
 .then(() => console.log('Connected to MongoDB Atlas'))
 .catch(err => console.error('MongoDB connection error:', err));
