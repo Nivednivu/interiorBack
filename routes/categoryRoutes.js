@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
+ 
 // Create new category
 router.post('/', async (req, res) => {
   const category = new Category({
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     image: req.body.image
   });
 
-  try {
+  try { 
     const newCategory = await category.save();
     res.status(201).json(newCategory);
   } catch (err) {
